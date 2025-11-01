@@ -26,12 +26,18 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.register<Jar>("fooHeaderAutoConfigJar") {
+    group = "build"
+    dependsOn(tasks.named("classes"))
+    from(sourceSets.main.get().output)
+    exclude("ru/chousik/mts/controller")
+    archiveClassifier.set("fooHeaderAutoConfig")
 }
