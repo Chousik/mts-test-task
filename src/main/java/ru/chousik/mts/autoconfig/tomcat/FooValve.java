@@ -1,4 +1,4 @@
-package ru.chousik.mts.tomcat;
+package ru.chousik.mts.autoconfig.tomcat;
 
 import jakarta.servlet.ServletException;
 import org.apache.catalina.connector.Request;
