@@ -10,7 +10,7 @@ import ru.chousik.mts.tomcat.FooValve;
 
 @AutoConfiguration(after = ServletWebServerFactoryAutoConfiguration.class)
 @ConditionalOnClass(Tomcat.class)
-public class TomcatConfiguration {
+public class TomcatAutoConfiguration {
     @Bean
     TomcatContextCustomizer fooValve(){
         return context -> context.getPipeline().addValve(new FooValve());
